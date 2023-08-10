@@ -385,7 +385,7 @@ class QuestionAnsweringPipeline(ChunkPipeline):
             - **end** (`int`) -- The character end index of the answer (in the tokenized version of the input).
             - **answer** (`str`) -- The answer to the question.
         """
-
+        kwargs['return_token_type_ids'] = False
         # Convert inputs to features
 
         examples = self._args_parser(*args, **kwargs)
