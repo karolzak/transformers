@@ -976,7 +976,11 @@ def pipeline(
                 break
 
     if tokenizer is not None:
-        kwargs["tokenizer"] = tokenizer[0]
+        if isinstance(tokenizer, Tuple):
+            kwargs["tokenizer"] = tokenizer[0]
+        else:
+            kwargs["tokenizer"] = tokenizer
+        
 
     if feature_extractor is not None:
         kwargs["feature_extractor"] = feature_extractor
